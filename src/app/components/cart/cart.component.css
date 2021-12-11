@@ -1,0 +1,35 @@
+.example-card {
+    max-width: 350px;
+    padding: 1.5rem;
+    box-shadow: 5px 10px 18px #888888;
+    background-color: #fff;
+    color: black;
+    margin: 2rem;
+  }
+
+mat-card-subtitle {
+    color: black;
+}
+
+img {
+    height: 180px;
+    width: 180px;
+    margin-left: 30px;
+    padding: 0;
+}
+
+mat-grid-tile {
+    border-radius: 5px;
+}
+
+mat-card-content {
+    height: 60px;
+    width: 200px;
+    word-wrap: break-word;
+    overflow:auto;
+}
+  
+.demo-button {
+    margin-left: 4rem;
+    margin-top: 1.5rem;
+  }

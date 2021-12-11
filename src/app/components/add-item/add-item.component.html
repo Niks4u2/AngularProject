@@ -1,0 +1,29 @@
+<mat-grid-list cols="1" rowHeight="500px">
+    <mat-grid-tile>
+        <div class="add-item-container">
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                <h2>Add Product</h2>
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Product Name</mat-label>
+                    <input matInput formControlName="productName">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Product Price</mat-label>
+                    <input matInput formControlName="price">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Product Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Product Image URL</mat-label>
+                    <input matInput formControlName="image">
+                </mat-form-field > 
+                <button (click)="openSnackBar(message, action)" 
+                mat-raised-button color="accent" type="submit">Add</button>
+            </form> 
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

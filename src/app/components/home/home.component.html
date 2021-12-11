@@ -1,0 +1,20 @@
+<mat-grid-list cols="4" rowHeight="480px">
+    <mat-grid-tile *ngFor="let data of dataSource">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{data.productName}}</mat-card-title>
+                <mat-card-subtitle>{{data.price | currency: 'INR'}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{data.image}}
+                alt="Photo of Fruit">
+            <mat-card-content>
+                <p>
+                        {{data.description}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions style="margin-left: 25%;">
+                <button (click)="addToCart(data)" mat-raised-button color="accent">ADD TO CART</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

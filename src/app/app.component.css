@@ -1,0 +1,19 @@
+span {
+    padding-right: 1rem;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+.logo {
+    text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.nav-link {
+    font-size: large;
+}
