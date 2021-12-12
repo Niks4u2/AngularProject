@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
 
   removeFromCart(productName: string)
   {
-    this.cartItems.pop();
+    this.cartItems = this.cartItems.filter(item => item.productName !== productName);
     localStorage.setItem('items', JSON.stringify(this.cartItems));
     window.location.reload();
   }

@@ -1,0 +1,11 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <mat-form-field class="search-form" appearance="standard">
+            <input type="text" matInput placeholder="Search Item" name="search" ngModel>
+            <button type="submit" matSuffix mat-button><mat-icon >search</mat-icon></button>
+            </mat-form-field>
+            <br/>
+        </form>
+    </mat-toolbar-row>
+</mat-toolbar>

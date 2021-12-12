@@ -19,7 +19,8 @@ const routes: Routes = [
   {path: 'add-item', component: AddItemComponent, canActivate: [AuthGuard]},
   {path: 'cart', component: CartComponent},
   {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
-  {path: 'confirmation', component: ConfirmationComponent, canActivate: [AuthGuard]}
+  {path: 'confirmation', component: ConfirmationComponent, canActivate: [AuthGuard]},
+  {path: 'search/:searchTerm', component: HomeComponent}
 ];
 
 @NgModule({

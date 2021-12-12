@@ -10,6 +10,8 @@ export class ProductService {
 
   _url_delete = "https://kitchen-story-spring-angular.herokuapp.com/products/delete/";
 
+  _url_search = "https://kitchen-story-spring-angular.herokuapp.com/products/";
+
   constructor(private http: HttpClient) { }
 
   addProduct(product: any)
@@ -25,6 +27,11 @@ export class ProductService {
   public deleteProduct(prodId: string)
   {
     return this.http.delete(this._url_delete+prodId, {responseType: 'text' as 'json'});
+  }
+
+  public searchProductByName(productName: string)
+  {
+    return this.http.get<any>(this._url_search+productName);
   }
 
 }

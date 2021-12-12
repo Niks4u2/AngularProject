@@ -17,6 +17,7 @@ import { AuthGuard } from './auth.guard';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
     AddItemComponent,
     CartComponent,
     CheckoutComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
