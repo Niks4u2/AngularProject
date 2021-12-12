@@ -15,6 +15,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { AuthGuard } from './auth.guard';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CartComponent } from './components/cart/cart.component';
     HomeComponent,
     AdminComponent,
     AddItemComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,

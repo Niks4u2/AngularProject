@@ -8,23 +8,18 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
   
   constructor(private authService: UserLoginService) {}
 
-  token()
-  {
-    if(this.authService.getToken())
-      return this.authService.getToken();
-    else
-      return "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWtoaWxAZ21haWwuY29tIiwiZXhwIjoxNjM5MzcxMTUzLCJpYXQiOjE2MzkxOTgzNTN9.eKE873yHcp-OllIqAmjCXzWDQaTqjI5yivO2lWd5PPw";
-  }
-
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    req = req.clone({
-      setHeaders: {
-          Authorization: `Bearer ${this.token()}`
-          }
-    });
+    if(this.authService.loggedIn())
+    {
+      req = req.clone({
+        setHeaders: {
+            Authorization: `Bearer ${this.authService.getToken()}`
+            }
+      });
+    }
     return next.handle(req);
   }
 }

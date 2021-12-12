@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from './components/login/login.component';
+import { Component } from '@angular/core';
 import { Product } from './models';
 import { CartService } from './services/cart.service';
-import { ProductService } from './services/product.service';
 import { UserLoginService } from './services/user-login.service';
 
 @Component({
@@ -19,12 +17,16 @@ export class AppComponent {
   getItemsCount(): number
   {
     this.cartItems = JSON.parse(localStorage.getItem('items')!);
-    return this.cartItems.length;
+    if(this.cartItems == null) {
+      return 0;
+    }
+    else{
+      return this.cartItems.length;
+    }
   }
 
   service = this._authService;
 
-  
   getLoggedInUser()
   {
     return localStorage.getItem('email');

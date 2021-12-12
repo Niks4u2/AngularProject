@@ -7,7 +7,7 @@ import { User } from '../models';
 })
 export class UserRegistrationService {
 
-  _url="http://localhost:5000/registration";
+  _url="https://kitchen-story-spring-angular.herokuapp.com/registration";
 
   constructor(private http: HttpClient) { }
 

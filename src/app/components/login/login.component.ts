@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserLoginService } from 'src/app/services/user-login.service';
 import { Login } from '../../models';
@@ -14,8 +15,14 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = {} as FormGroup;
   userEmail: string = "";
   user: Login = {} as Login;
+  message = "Email or Password Invalid";
+  action = "Try Again";
 
-  constructor(private formBuilder: FormBuilder, private loginService: UserLoginService, private router: Router) { }
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  constructor(private formBuilder: FormBuilder, private loginService: UserLoginService, 
+              private router: Router, private snackBar: MatSnackBar) { }
 
   get email()
   {
@@ -34,14 +41,24 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  openSnackBar(message: string, action: string)
+  {
+    this.snackBar.open(message, action, {duration: 4000, horizontalPosition: this.horizontalPosition, 
+                                        verticalPosition: this.verticalPosition});
+  }
+
   login()
   {
     this.loginService.loginUser(this.loginForm.value).subscribe(
         res => { localStorage.setItem('token', res.jwt);
                  localStorage.setItem('email', this.loginForm.get('email')?.value);
-                }
+                 this.router.navigate(['home']);
+                },
+        err => { 
+                  this.openSnackBar(this.message, this.action);
+                  this.router.navigate(['login']);
+               }
     );
-    this.router.navigate(['home']);
   }
 
 }

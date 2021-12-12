@@ -1,0 +1,23 @@
+<mat-grid-list cols="1" rowHeight="480px">
+    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-title>Order Placed Successfully!</mat-card-title>
+            <mat-card-subtitle>Order Details</mat-card-subtitle>
+            <mat-card-content *ngFor="let item of cartItems">
+                <mat-divider inset></mat-divider>
+             <span><h2>{{ item.productName}}</h2>
+                <p>{{item.price | currency: 'INR'}}</p></span>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <h1>Total Amount Paid: {{ total }}</h1>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions>
+              <a style="margin-left: 0.5rem;" color="accent" routerLink="/home" mat-raised-button>Shop More</a>
+            </mat-card-actions>
+            <mat-card-footer>
+                <p style="margin-left: 1.2rem;">Thank you for shopping with us.</p>
+            </mat-card-footer>
+        </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  

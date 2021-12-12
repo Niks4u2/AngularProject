@@ -1,0 +1,18 @@
+.width-100{width: 100%;}
+
+mat-label {
+    color: black;
+}
+
+.address-container {
+    padding: 1.5rem;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+small {
+    margin-left: 10px;
+}
+
+.payment-card {
+    padding: 2rem;
+}

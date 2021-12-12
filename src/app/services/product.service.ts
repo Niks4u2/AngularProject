@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
 
-  _url = "http://localhost:5000/products";
+  _url = "https://kitchen-story-spring-angular.herokuapp.com/products";
 
-  _url_delete = "http://localhost:5000/products/delete/";
+  _url_delete = "https://kitchen-story-spring-angular.herokuapp.com/products/delete/";
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +24,7 @@ export class ProductService {
 
   public deleteProduct(prodId: string)
   {
-    return this.http.delete("http://localhost:5000/products/delete/"+prodId, {responseType: 'text' as 'json'});
+    return this.http.delete(this._url_delete+prodId, {responseType: 'text' as 'json'});
   }
 
 }

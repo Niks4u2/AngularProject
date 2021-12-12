@@ -8,7 +8,7 @@ import { Login } from '../models';
 })
 export class UserLoginService {
 
-  _url: string = "http://localhost:5000/authenticate";
+  _url: string = "https://kitchen-story-spring-angular.herokuapp.com/authenticate";
 
   constructor(private http: HttpClient, private router: Router) { }
 

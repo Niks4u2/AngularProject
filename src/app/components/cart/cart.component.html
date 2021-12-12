@@ -1,9 +1,12 @@
 <section *ngIf="total != 0">
     <h1 class="demo-button">Total Amount : {{ total }}</h1>    
-<button mat-raised-button class="demo-button">Checkout</button>
+<a routerLink="/checkout" mat-raised-button class="demo-button">Checkout</a>
 </section>
-<h1 *ngIf="total == 0" style="margin-left: 40%;">No items in cart.</h1>
-<mat-grid-list cols="4" rowHeight="480px">
+<section *ngIf="total == 0">
+    <h1 style="margin-left: 40%;">No items in cart.</h1>
+    <img style="height: 400px; width: 400px; margin-left: 35%;" src="../../../assets/empty_cart.svg" alt="empty cart">
+</section>
+<mat-grid-list cols="4" rowHeight="500px">
     <mat-grid-tile *ngFor="let item of cartItems">
         <mat-card class="example-card">
             <mat-card-header>

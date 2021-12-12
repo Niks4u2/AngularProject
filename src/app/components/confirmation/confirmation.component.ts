@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models';
-import { CartService } from 'src/app/services/cart.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  selector: 'app-confirmation',
+  templateUrl: './confirmation.component.html',
+  styleUrls: ['./confirmation.component.css']
 })
-export class CartComponent implements OnInit {
+export class ConfirmationComponent implements OnInit {
 
   cartItems: Product[] = [];
+  total: number= 0;
 
   constructor() { }
 
@@ -23,15 +23,6 @@ export class CartComponent implements OnInit {
     this.cartItems = JSON.parse(localStorage.getItem('items')!);
     return this.cartItems;
   }
-
-  removeFromCart(productName: string)
-  {
-    this.cartItems.pop();
-    localStorage.setItem('items', JSON.stringify(this.cartItems));
-    window.location.reload();
-  }
-
-  total: number= 0;
 
   getTotal()
   {

@@ -7,6 +7,8 @@ import { AdminComponent } from './components/admin/admin.component'
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { AuthGuard } from './auth.guard';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'add-item', component: AddItemComponent, canActivate: [AuthGuard]},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
+  {path: 'confirmation', component: ConfirmationComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
