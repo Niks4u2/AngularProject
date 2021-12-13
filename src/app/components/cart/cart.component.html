@@ -7,7 +7,7 @@
     
     <img style="height: 400px; width: 400px; margin-left: 35%;" src="../../../assets/empty_cart.svg" alt="empty cart">
 </section>
-<mat-grid-list cols="4" rowHeight="500px">
+<mat-grid-list *ngIf="total !== 0" cols="4" rowHeight="500px">
     <mat-grid-tile *ngFor="let item of cartItems">
         <mat-card class="example-card">
             <mat-card-header>

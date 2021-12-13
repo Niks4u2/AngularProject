@@ -29,7 +29,12 @@ export class CartComponent implements OnInit {
   {
     this.cartItems = this.cartItems.filter(item => item.productName !== productName);
     localStorage.setItem('items', JSON.stringify(this.cartItems));
-    this.reloadComponent();
+    if(this.cartItems.length == 0)
+    {
+      window.location.reload();
+    }else{
+      this.reloadComponent();
+    }
   }
 
   getTotal()

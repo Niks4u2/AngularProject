@@ -2,7 +2,7 @@
     <mat-grid-tile>
         <div class="registration-container">
             <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-                <h2>User Registration</h2>
+                <h2 class="ml-2">User Registration</h2>
                 <mat-form-field appearance="fill" class="width-50">
                     <mat-label>First Name</mat-label>
                     <input matInput formControlName="firstName">
@@ -28,6 +28,7 @@
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
+                <br>
                 <mat-form-field appearance="fill" class="width-100">
                     <mat-label>Confirm password</mat-label>
                     <input matInput formControlName="confirmPassword" [type]="chide ? 'password' : 'text'">
@@ -36,6 +37,7 @@
                         <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
+                <br>
                 <button (click)="openSnackBar(message, action)" [disabled]="!registrationForm.valid" mat-raised-button color="primary" type="submit">Register</button>
                 <small>Already have an account? <a mat-button routerLink="/login">Login Here</a></small>
             </form>
