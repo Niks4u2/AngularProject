@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 import { Login } from '../models';
 
 @Injectable({
@@ -8,7 +9,9 @@ import { Login } from '../models';
 })
 export class UserLoginService {
 
-  _url: string = "https://kitchen-story-spring-angular.herokuapp.com/authenticate";
+  baseUrl = environment.baseUrl;
+
+  _url: string = this.baseUrl+"authenticate";
 
   constructor(private http: HttpClient, private router: Router) { }
 

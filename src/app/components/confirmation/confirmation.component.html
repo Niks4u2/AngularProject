@@ -9,7 +9,7 @@
                 <p>{{item.price | currency: 'INR'}}</p></span>
             </mat-card-content>
             <mat-divider inset></mat-divider>
-            <h1>Total Amount Paid: {{ total }}</h1>
+            <h1>Total Amount Paid: {{ total | currency: 'INR' }}</h1>
             <mat-divider inset></mat-divider>
             <mat-card-actions>
               <a style="margin-left: 0.5rem;" color="accent" routerLink="/home" mat-raised-button>Shop More</a>

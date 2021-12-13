@@ -3,7 +3,8 @@
 <a routerLink="/checkout" mat-raised-button class="demo-button">Checkout</a>
 </section>
 <section *ngIf="total == 0">
-    <h1 style="margin-left: 40%;">No items in cart.</h1>
+    <h1 style="margin-left: 38%; margin-top: 5%;">No items in cart.    <a mat-raised-button color="accent" routerLink="/home">Shop Now</a></h1>
+    
     <img style="height: 400px; width: 400px; margin-left: 35%;" src="../../../assets/empty_cart.svg" alt="empty cart">
 </section>
 <mat-grid-list cols="4" rowHeight="500px">

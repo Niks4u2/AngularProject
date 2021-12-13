@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  _url = "https://kitchen-story-spring-angular.herokuapp.com/products";
+  baseUrl = environment.baseUrl;
+
+  _url = this.baseUrl+"products/";
 
   _url_delete = "https://kitchen-story-spring-angular.herokuapp.com/products/delete/";
 
@@ -26,12 +29,12 @@ export class ProductService {
 
   public deleteProduct(prodId: string)
   {
-    return this.http.delete(this._url_delete+prodId, {responseType: 'text' as 'json'});
+    return this.http.delete(this._url+"delete/"+prodId, {responseType: 'text' as 'json'});
   }
 
   public searchProductByName(productName: string)
   {
-    return this.http.get<any>(this._url_search+productName);
+    return this.http.get<any>(this._url+productName);
   }
 
 }

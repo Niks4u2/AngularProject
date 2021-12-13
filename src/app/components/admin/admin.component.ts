@@ -36,7 +36,7 @@ export class AdminComponent {
   {
       this.service.deleteProduct(prodId).subscribe(data => console.log('Delete Success.'));
       this.openSnackBar(this.message, this.action);
-      this.ngOnInit();
+      this.reloadComponent();
   }
 
   openSnackBar(message: string, action: string)
@@ -44,4 +44,11 @@ export class AdminComponent {
     this.snackBar.open(message, action, {duration: 4000, horizontalPosition: this.horizontalPosition, 
                                         verticalPosition: this.verticalPosition});
   }
+
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
 }

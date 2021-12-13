@@ -15,10 +15,4 @@ export class CartService {
     this.cartItems.push(product);
     localStorage.setItem('items', JSON.stringify(this.cartItems));
   }
-
-  getItemCount(): number
-  {
-    console.log(this.cartItems.length)
-    return this.cartItems.length;
-  }
 }

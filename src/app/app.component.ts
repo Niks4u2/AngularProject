@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Product } from './models';
-import { CartService } from './services/cart.service';
 import { UserLoginService } from './services/user-login.service';
 
 @Component({
@@ -12,7 +11,7 @@ export class AppComponent {
   title = 'kitchen-story';
   cartItems: Product[] = [];
 
-  constructor(private _authService: UserLoginService, private cartService: CartService) {}
+  constructor(private _authService: UserLoginService) {}
   
   getItemsCount(): number
   {

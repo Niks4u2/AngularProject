@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models';
-import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +10,9 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
 
   cartItems: Product[] = [];
+  total: number= 0;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.getItems();
@@ -28,16 +29,21 @@ export class CartComponent implements OnInit {
   {
     this.cartItems = this.cartItems.filter(item => item.productName !== productName);
     localStorage.setItem('items', JSON.stringify(this.cartItems));
-    window.location.reload();
+    this.reloadComponent();
   }
-
-  total: number= 0;
 
   getTotal()
   {
     for (var product of this.cartItems) {
       this.total += product.price;
     }
+  }
+
+  reloadComponent() {
+  let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
   }
 
 }
